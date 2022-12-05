@@ -1,0 +1,27 @@
+{
+  "name": "bridge-smartcontract",
+  "version": "1.0.0",
+  "description": "A decentralised bridge for NFT's between polygon and ethereum network.",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swatimalode/bridge-smartcontract.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swatimalode/bridge-smartcontract/issues"
+  },
+  "homepage": "https://github.com/swatimalode/bridge-smartcontract#readme",
+  "dependencies": {
+    "@openzeppelin/contracts-upgradeable": "^4.8.0",
+    "@truffle/hdwallet-provider": "^2.1.2",
+    "truffle-plugin-verify": "^0.6.1"
+  }
+}
