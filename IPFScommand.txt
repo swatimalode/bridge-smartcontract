@@ -1,0 +1,216 @@
+
+1.  ipfs add - Used to add files to IPFS, creating a hash of the content.
+2.  ipfs get - Used to retrieve files from IPFS.
+3.  ipfs pin - Used to pin a file or folder to IPFS, ensuring that it is retained in the network.
+4.  ipfs refs - Used to list the file's references, such as the IPFS hashes of the files it links to.
+5.  ipfs repo gc - Used to remove objects from the IPFS network which are no longer being referenced.
+6.  ipfs name publish - Used to publish a file's content hash to a naming system such as DNSLink.
+7.  ipfs files ls - Used to list the contents of an IPFS directory.
+8.  ipfs files cp - Used to copy files from one IPFS node to another.
+9.  ipfs files mkdir - Used to create a new directory on IPFS.
+10. ipfs swarm peers - Used to list the IPFS peers connected to a node.
+
+
+IPFS is a peer-to-peer distributed file system that can be used for storing online orders and retrieving them without any backend application. It stores and retrieves data using a content-addressed storage system. This means that each item stored on IPFS has an address associated with it, so it can be accessed directly without having to query a backend database.
+
+The steps to use IPFS for storing online orders and retrieving them without any backend application are as follows: 
+
+1. Install IPFS on your system. 
+2. Create a data structure for storing the online orders. 
+3. Generate a hash for each order. 
+4. Upload the orders to IPFS using the generated hashes. 
+5. Retrieve the orders from IPFS using the hash associated with them. 
+6. Process the orders as required.
+
+1. Oraclize: It is an off-chain service that can be used to access external data in a secure and reliable way.
+
+2. Consensys IPFS: It is a decentralized content delivery network that enables users to store and access data from anywhere in the world.
+
+3. Chainlink: It is a blockchain-based oracle platform that can be used to connect external data to smart contracts.
+
+4. Web3: It is a platform that enables developers to access blockchain data from external sources.
+
+5. Augur: It is a decentralized prediction market platform that provides access to real-time data from around the world.
+
+
+
+The ConsenSys IPFS integration is a suite of tools, libraries, and services that allow developers to interact with IPFS, the InterPlanetary File System, from within their smart contracts. This integration allows developers to store files permanently and securely on the IPFS network and access them directly from their smart contracts.
+
+To get started, developers first need to install the ConsenSys IPFS integration. This can be done using the Truffle Boxes, which are template projects that provide a boilerplate for quickly bootstrapping a project. Once the integration is installed, developers can begin to interact with the IPFS network from within their smart contracts.
+
+To do this, developers need to add the necessary method calls to their smart contracts. For example, they can add the ‘upload’ method, which allows them to upload a file to the IPFS network and store its hash on the blockchain. They can also add the ‘download’ method, which allows them to retrieve a file from the IPFS network using its hash.
+
+Once the methods have been added, developers can call them from their smart contracts to interact with the IPFS network. This allows them to store files securely and permanently on the IPFS network and
+
+
+
+1. Install the ConsenSys IPFS library: Before you can use the ConsenSys IPFS library, you need to install the library on your development machine. Follow the instructions provided on the ConsenSys website to install the library. 
+
+2. Set up an IPFS node: You need to set up an IPFS node to use the ConsenSys IPFS library. You can use any IPFS node, but it is recommended to use the Infura IPFS node. 
+
+3. Connect your IPFS node to your Ethereum blockchain: You need to connect your IPFS node to your Ethereum blockchain. This can be done by using the web3.js library. 
+
+4. Create a smart contract that uses the ConsenSys IPFS library: Once your IPFS node is connected to your Ethereum blockchain, you can create a smart contract that uses the ConsenSys IPFS library. 
+
+5. Use the ConsenSys IPFS library to store data on the IPFS node: Once your smart contract is created, you can use the ConsenSys IPFS library to store data on the IPFS node. 
+
+6. Use the IPFS node to access the data stored on the
+
+
+
+
+1. Install the IPFS client on your machine.
+
+2. Connect to the IPFS network using the IPFS client.
+
+3. Create a folder in your project directory and store the files you want to upload to IPFS in this folder.
+
+4. Initialize the IPFS repository using the IPFS client.
+
+5. Add the files to the IPFS repository using the IPFS client.
+
+6. Get the IPFS hash for the files you uploaded by using the IPFS client.
+
+7. Write a smart contract that reads the IPFS hash from the blockchain and retrieves the files from IPFS.
+
+8. Deploy the smart contract.
+
+9. Test the smart contract to make sure it is able to retrieve the files from IPFS.
+
+
+pragma solidity ^0.5.0;
+
+contract IPFS {
+    
+    string public ipfsHash;
+    
+    // Function to set the IPFS Hash
+    function setIPFSHash(string memory _ipfsHash) public {
+        ipfsHash = _ipfsHash;
+    }
+    
+    // Function to get the IPFS Hash
+    function getIPFSHash() public view returns (string memory) {
+        return ipfsHash;
+    }
+    
+    // Function to retrieve the files from IPFS
+    function retrieveFiles() public view returns (string memory) {
+        return ipfs.cat(ipfsHash);
+    }
+    
+}
+
+The Truffle framework provides a library for interacting with IPFS from within a smart contract. This library allows developers to interact with IPFS in a variety of ways, including reading and writing data to and from IPFS, creating a hash of a file or string, and publishing a file to IPFS. It also supports the use of IPFS gateways to access files stored on IPFS without having to run a local node. 
+
+To use the IPFS library in a smart contract, you must first install the IPFS library from the Truffle framework. You can do this by running the following command in the command line:
+
+truffle install ipfs
+
+Once you have the IPFS library installed, you can start using it in your smart contracts. You can use the library to read and write data to and from IPFS, create a hash of a file or string, and publish a file to IPFS. Additionally, you can use the library to access files stored on IPFS from a web browser without having to run a local node. 
+
+To get started, you can find detailed instructions on how to use the IPFS library in the Truffle framework documentation.
+
+
+The IPFS library is a distributed peer-to-peer file system that can be used in the Truffle framework. IPFS is a powerful way to store and distribute data, and it can be used in conjunction with Truffle to securely store and deploy data-heavy applications.
+
+To use IPFS in the Truffle framework, you will need to install the IPFS library, which can be done with npm. Once the library is installed, you will need to configure it in your Truffle configuration file. For example, to configure IPFS for the development environment, add the following configuration to your truffle.js file:
+
+module.exports = {
+  networks: {
+    development: {
+      provider: () => new HDWalletProvider(mnemonic, `https://${ipfs.host}:${ipfs.port}`),
+      network_id: '*',
+    },
+  },
+  ipfs: {
+    host: '<your ipfs host>',
+    port: '<your ipfs port>',
+  },
+};
+
+
+
+1. Install the IPFS library for the Truffle framework:
+
+a. Install the IPFS Client: 
+```sh
+npm install ipfs-http-client
+```
+
+b. Install the Truffle-IPFS library: 
+```sh
+npm install truffle-ipfs
+```
+
+2. Configure the IPFS library in the Truffle configuration file (truffle-config.js):
+
+a. Add the IPFS configuration to the Truffle configuration file (truffle-config.js):
+
+```javascript
+const ipfs = require("truffle-ipfs");
+
+module.exports = {
+  networks: {
+    development: {
+      ipfs: {
+        host: "localhost",
+        port: 5001,
+        protocol: "http"
+      }
+    }
+  },
+  compilers: {
+    solc: {
+      version: "0.5.2",
+      ipfs: ipfs
+    }
+  }
+};
+```
+
+3. Import the IPFS library in your Solidity contract:
+
+
+
+1. Install Truffle and IPFS: Install Truffle and IPFS by running the following commands in your terminal:
+
+```
+npm install -g truffle
+npm install -g ipfs
+```
+
+2. Initialize Truffle project: Create a new Truffle project using the following command:
+
+```
+truffle init
+```
+
+3. Create an IPFS instance: Create an IPFS instance by running the following command:
+
+```
+ipfs daemon
+```
+
+4. Configure Truffle to use IPFS: Configure Truffle to use IPFS by adding the following configuration to your truffle.js file:
+
+```
+module.exports = {
+  networks: {
+    development: {
+      host: 'localhost',
+      port: 8545,
+      network_id: '*',
+      ipfs: {
+        host: 'localhost',
+        port: 5001
+      }
+    }
+  }
+};
+```
+
+5. Deploy contracts: Deploy contracts using the following command:
+
+```
+truffle deploy --network

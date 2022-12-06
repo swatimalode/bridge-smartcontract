@@ -1,22 +1,34 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 let privateKey = process.env.privateKey;
+const IPFS = require("ipfs");
+const ipfs = new IPFS();
 
 module.exports = {
   networks: {
+    networks: {
+      development: {
+        provider: IPFS,
+        host: "localhost",
+        port: 5001,
+        gas: 5000000,
+        gasPrice: 5e9,
+        network_id: "*"
+      }
+    },
     georli_testnet: {
-      provider: () => new HDWalletProvider(privateKey,'https://eth-goerli.g.alchemy.com/v2/mP5M97XSz2PH983Y9DKuGTcKwytpzHuk'),
+      provider: () => new HDWalletProvider(privateKey,process.env.ETHEREUM_RPC_URL),
       network_id: 5,
       skipDryRun: true
     },
     matic_testnet: {
-      provider: () => new HDWalletProvider(privateKey, 'https://polygon-mumbai.g.alchemy.com/v2/dpDZ_v-uHpEHo2ENTR-KT5SnVmJw3h4X'), // wss://speedy-nodes-nyc.moralis.io/af271fa0290d1b4fdf0a5b35/polygon/mumbai/ws
+      provider: () => new HDWalletProvider(privateKey, process.env.POLYGON_RPC_URL), // wss://speedy-nodes-nyc.moralis.io/af271fa0290d1b4fdf0a5b35/polygon/mumbai/ws
       network_id: 80001,
       skipDryRun: true
     }
   },
   compilers: {
     solc: {
-      version: '0.8.7',
+      version: '0.8.16',
       settings: {
         optimizer: {
           enabled: true,
