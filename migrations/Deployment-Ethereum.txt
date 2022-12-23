@@ -1,0 +1,79 @@
+Compiling your contracts...
+===========================
+> Everything is up to date, there is nothing to compile.
+
+
+Starting migrations...
+======================
+> Network name:    'goerli'
+> Network id:      5
+> Block gas limit: 30000000 (0x1c9c380)
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'BridgeEthereumV1'
+   ----------------------------
+   > transaction hash:    0xe42349d709ae29951ef5551690aced65123aafde5ac7658419d42834058f352c
+   > Blocks: 1            Seconds: 13
+   > contract address:    0xF4Ee8B5E805b607E052Fe7aFCB00498B9118D1a9
+   > block number:        8184486
+   > block timestamp:     1671769104
+   > account:             0x97fd1768cdDDb8b2D46878d1E0162405DA75d185
+   > balance:             0.997790996368130462
+   > gas used:            963641 (0xeb439)
+   > gas price:           2.500000018 gwei
+   > value sent:          0 ETH
+   > total cost:          0.002409102517345538 ETH
+
+
+   Deploying 'ProxyAdmin'
+   ----------------------
+   > transaction hash:    0xe11b849c8099eb093e98dc2c0007ae49ef87230de3a1f9110cad09e27290001b
+   > Blocks: 1            Seconds: 8
+   > contract address:    0x96ce60992e3a11D2a6e21966E6EAeCef7Aea10b1
+   > block number:        8184487
+   > block timestamp:     1671769116
+   > account:             0x97fd1768cdDDb8b2D46878d1E0162405DA75d185
+   > balance:             0.996575828859381256
+   > gas used:            486067 (0x76ab3)
+   > gas price:           2.500000018 gwei
+   > value sent:          0 ETH
+   > total cost:          0.001215167508749206 ETH
+
+
+   Deploying 'TransparentUpgradeableProxy'
+   ---------------------------------------
+   > transaction hash:    0x419bb6d94117739f78e381da373bf9821f7184393e620bebb0ff42c38918aa39
+   > Blocks: 2            Seconds: 14
+   > contract address:    0x641aFAd9aD0e0d4E5BA52cb0B562B039d7263088
+   > block number:        8184489
+   > block timestamp:     1671769140
+   > account:             0x97fd1768cdDDb8b2D46878d1E0162405DA75d185
+   > balance:             0.994984273847285438
+   > gas used:            636622 (0x9b6ce)
+   > gas price:           2.500000019 gwei
+   > value sent:          0 ETH
+   > total cost:          0.001591555012095818 ETH
+
+Deployed 0x641aFAd9aD0e0d4E5BA52cb0B562B039d7263088
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:     0.005215825038190562 ETH
+
+Summary
+=======
+> Total deployments:   3
+> Final cost:          0.005215825038190562 ETH
+
+Verifying contracts on etherscan
+   Verifying BridgeEthereumV1
+   Verifying proxy implementation BridgeEthereumV1 at 0xf4ee8b5e805b607e052fe7afcb00498b9118d1a9
+   Linking proxy and implementation addresses
+   Pass - Verified: https://goerli.etherscan.io/address/0x641aFAd9aD0e0d4E5BA52cb0B562B039d7263088#code
+   Successfully verified 1 contract(s).
+Verifying contracts on sourcify
+   Verifying BridgeEthereumV1
+   Verifying proxy implementation BridgeEthereumV1 at 0xf4ee8b5e805b607e052fe7afcb00498b9118d1a9
+   Pass - Verified: https://sourcify.dev/#/lookup/0x641aFAd9aD0e0d4E5BA52cb0B562B039d7263088

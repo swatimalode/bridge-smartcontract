@@ -6,10 +6,20 @@ import "./Interfaces/IERC1155Upgradeable.sol";
 
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/utils/cryptography/SignatureCheckerUpgradeable.sol";
 
 contract BridgeEthereumV1 is OwnableUpgradeable {
-    mapping(address => address) public MapAddresses;
+    mapping(address => address) public MapAddressesEthereum;
+    mapping(address => address) public MapAddressesMatic;
     mapping(address => mapping(address => bool)) public MapAddressesStatus;
+    mapping(bytes => bool) private checker;
+
+    struct WithdrawOrder {
+        address eth_contract_address;
+        address owner_address;
+        uint256 tokenId;
+        bytes32 messageHash;
+    }
 
     // Events
     event Mapped(
@@ -17,7 +27,17 @@ contract BridgeEthereumV1 is OwnableUpgradeable {
         address Matic_Contract_Address
     );
 
-    event DepositedERC721(address Ethereum_Contract_Address, address Owner, uint256 TokenId);
+    event DepositedERC721(
+        address Ethereum_Contract_Address,
+        address Owner,
+        uint256 TokenId
+    );
+
+    event WithdrawnERC721(
+        address Ethereum_Contract_Address,
+        address Owner,
+        uint256 TokenId
+    );
 
     function initialize() public initializer {
         __Ownable_init();
@@ -28,26 +48,24 @@ contract BridgeEthereumV1 is OwnableUpgradeable {
         address _matic_contract_address
     ) external virtual {
         require(
-            AddressUpgradeable.isContract(_matic_contract_address),
+            AddressUpgradeable.isContract(_eth_contract_address),
             "BridgeEthereum: Invalid address"
         );
 
         require(
-            MapAddresses[_matic_contract_address] == address(0) &&
-                !MapAddressesStatus[_matic_contract_address][
-                    _eth_contract_address
-                ],
+            MapAddressesMatic[_matic_contract_address] == address(0) &&
+            MapAddressesEthereum[_eth_contract_address] == address(0) &&
+            !MapAddressesStatus[_eth_contract_address][_matic_contract_address],
             "BridgeEthereum: Contract is already mapped"
         );
         require(
-            OwnableUpgradeable(_matic_contract_address).owner() == msg.sender,
+            OwnableUpgradeable(_eth_contract_address).owner() == msg.sender,
             "BridgeEthereum: You are not eligible"
         );
 
-        MapAddresses[_matic_contract_address] = _eth_contract_address;
-        MapAddressesStatus[_matic_contract_address][
-            _eth_contract_address
-        ] = true;
+        MapAddressesMatic[_matic_contract_address] = _eth_contract_address;
+        MapAddressesEthereum[_eth_contract_address] = _matic_contract_address;
+        MapAddressesStatus[_eth_contract_address][_matic_contract_address] = true;
 
         emit Mapped(_eth_contract_address, _matic_contract_address);
     }
@@ -57,7 +75,7 @@ contract BridgeEthereumV1 is OwnableUpgradeable {
         virtual
     {
         require(
-            MapAddresses[_eth_contract_address] != address(0),
+            MapAddressesEthereum[_eth_contract_address] != address(0),
             "BridgeEthereum: Invalid address"
         );
         require(
@@ -69,5 +87,30 @@ contract BridgeEthereumV1 is OwnableUpgradeable {
         IERC721Upgradeable(_eth_contract_address).burn(_token_id);
 
         emit DepositedERC721(_eth_contract_address, msg.sender, _token_id);
+    }
+
+    function withdrawERC721(
+        WithdrawOrder memory _order,
+        bytes memory _signature
+    ) external virtual {
+        require(
+            SignatureCheckerUpgradeable.isValidSignatureNow(
+                owner(),
+                _order.messageHash,
+                _signature
+            ) && !checker[_signature],
+            "BridgeEthereum: UNAUTHORISED"
+        );
+        require(_order.owner_address == msg.sender, "BridgeEthereum: Invalid Owner");
+        require(
+            MapAddressesMatic[_order.eth_contract_address] != address(0),
+            "BridgeEthereum: Invalid address"
+        );
+
+        checker[_signature] = true;
+
+        IERC721Upgradeable(_order.eth_contract_address).mint(_order.tokenId);
+
+        emit WithdrawnERC721(_order.eth_contract_address, msg.sender, _order.tokenId);
     }
 }

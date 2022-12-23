@@ -21,7 +21,9 @@
   "homepage": "https://github.com/swatimalode/bridge-smartcontract#readme",
   "dependencies": {
     "@openzeppelin/contracts-upgradeable": "^4.8.0",
+    "@openzeppelin/truffle-upgrades": "^1.17.0",
     "@truffle/hdwallet-provider": "^2.1.2",
+    "dotenv": "^16.0.3",
     "truffle-plugin-verify": "^0.6.1"
   }
 }

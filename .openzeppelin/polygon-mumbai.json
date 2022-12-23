@@ -1,0 +1,115 @@
+{
+  "manifestVersion": "3.2",
+  "admin": {
+    "address": "0x94369FBA2c16017ed6Bc855C9e35501E45Ec4015",
+    "txHash": "0x8b8645e1bf2afc3002aac104b5accdaf399440a29c5159c831c958919b9a7330"
+  },
+  "proxies": [
+    {
+      "address": "0xF4Ee8B5E805b607E052Fe7aFCB00498B9118D1a9",
+      "txHash": "0x43c4828f0168b1b34a52290708787a6c291b50033106e7e3665ff5e72d244ec2",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "917ffdc0839071456ece320c744b5827e1053265d262cb601c85dbefc605b1be": {
+      "address": "0x04629Ef344DD647FDC1199E154d207d9A465fe5e",
+      "txHash": "0x2caa889ea0a44acfe9f022369e78377c4d486f7958a240bdb0aab6c8093ed971",
+      "layout": {
+        "solcVersion": "0.8.16",
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_uint8",
+            "src": "../@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:62",
+            "retypedFrom": "bool"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "../@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:67"
+          },
+          {
+            "contract": "ContextUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "../@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:36"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "_owner",
+            "type": "t_address",
+            "src": "../@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "../@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:94"
+          },
+          {
+            "contract": "BridgePolygonV1",
+            "label": "MapAddressesEthereum",
+            "type": "t_mapping(t_address,t_address)",
+            "src": "../project:/contracts/BridgeEthereumV1.sol:12"
+          },
+          {
+            "contract": "BridgePolygonV1",
+            "label": "MapAddressesMatic",
+            "type": "t_mapping(t_address,t_address)",
+            "src": "../project:/contracts/BridgeEthereumV1.sol:13"
+          },
+          {
+            "contract": "BridgePolygonV1",
+            "label": "MapAddressesStatus",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_bool))",
+            "src": "../project:/contracts/BridgeEthereumV1.sol:14"
+          },
+          {
+            "contract": "BridgePolygonV1",
+            "label": "checker",
+            "type": "t_mapping(t_bytes_memory_ptr,t_bool)",
+            "src": "../project:/contracts/BridgeEthereumV1.sol:15"
+          }
+        ],
+        "types": {
+          "t_mapping(t_address,t_address)": {
+            "label": "mapping(address => address)"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_bool))": {
+            "label": "mapping(address => mapping(address => bool))"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_mapping(t_bytes_memory_ptr,t_bool)": {
+            "label": "mapping(bytes => bool)"
+          },
+          "t_bytes_storage": {
+            "label": "bytes"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          }
+        }
+      }
+    }
+  }
+}

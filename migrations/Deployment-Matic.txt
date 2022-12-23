@@ -1,0 +1,82 @@
+
+Compiling your contracts...
+===========================
+> Everything is up to date, there is nothing to compile.
+
+
+Starting migrations...
+======================
+> Network name:    'matic'
+> Network id:      80001
+> Block gas limit: 20275120 (0x1355fb0)
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'BridgePolygonV1'
+   ---------------------------
+   > transaction hash:    0x2caa889ea0a44acfe9f022369e78377c4d486f7958a240bdb0aab6c8093ed971
+   > Blocks: 5            Seconds: 8
+   > contract address:    0x04629Ef344DD647FDC1199E154d207d9A465fe5e
+   > block number:        30034105
+   > block timestamp:     1671769459
+   > account:             0x97fd1768cdDDb8b2D46878d1E0162405DA75d185
+   > balance:             9.997596837485581025
+   > gas used:            961265 (0xeaaf1)
+   > gas price:           2.500000015 gwei
+   > value sent:          0 ETH
+   > total cost:          0.002403162514418975 ETH
+
+
+   Deploying 'ProxyAdmin'
+   ----------------------
+   > transaction hash:    0x8b8645e1bf2afc3002aac104b5accdaf399440a29c5159c831c958919b9a7330
+   > Blocks: 2            Seconds: 4
+   > contract address:    0x94369FBA2c16017ed6Bc855C9e35501E45Ec4015
+   > block number:        30034111
+   > block timestamp:     1671769471
+   > account:             0x97fd1768cdDDb8b2D46878d1E0162405DA75d185
+   > balance:             9.99638166997829002
+   > gas used:            486067 (0x76ab3)
+   > gas price:           2.500000015 gwei
+   > value sent:          0 ETH
+   > total cost:          0.001215167507291005 ETH
+
+
+   Deploying 'TransparentUpgradeableProxy'
+   ---------------------------------------
+   > transaction hash:    0x43c4828f0168b1b34a52290708787a6c291b50033106e7e3665ff5e72d244ec2
+   > Blocks: 2            Seconds: 6
+   > contract address:    0xF4Ee8B5E805b607E052Fe7aFCB00498B9118D1a9
+   > block number:        30034117
+   > block timestamp:     1671769485
+   > account:             0x97fd1768cdDDb8b2D46878d1E0162405DA75d185
+   > balance:             9.99479008496874051
+   > gas used:            636634 (0x9b6da)
+   > gas price:           2.500000015 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00159158500954951 ETH
+
+Deployed 0xF4Ee8B5E805b607E052Fe7aFCB00498B9118D1a9
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:     0.00520991503125949 ETH
+
+Summary
+=======
+> Total deployments:   3
+> Final cost:          0.00520991503125949 ETH
+
+
+Verifying contracts on polygonscan
+   Verifying BridgePolygonV1
+   Verifying proxy implementation BridgePolygonV1 at 0x04629ef344dd647fdc1199e154d207d9a465fe5e
+   Linking proxy and implementation addresses
+   Pass - Verified: https://mumbai.polygonscan.com/address/0xF4Ee8B5E805b607E052Fe7aFCB00498B9118D1a9#code
+   Successfully verified 1 contract(s).
+Verifying contracts on sourcify
+   Verifying BridgePolygonV1
+   Verifying proxy implementation BridgePolygonV1 at 0x04629ef344dd647fdc1199e154d207d9a465fe5e
+   Pass - Verified: https://sourcify.dev/#/lookup/0xF4Ee8B5E805b607E052Fe7aFCB00498B9118D1a9
+   Successfully verified 1 contract(s).
